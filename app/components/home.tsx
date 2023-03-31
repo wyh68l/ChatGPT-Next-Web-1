@@ -350,7 +350,7 @@ export function Chat(props: {
           <div className={styles["window-header-sub-title"]}>
             {Locale.Chat.SubTitle(session.messages.length)}
           </div>
-            <div className={styles["window-header-sub-tip"]}>(如不能聊天，请关注‘简桔’公众号回复‘chat’获取密钥)</div>
+            {/*<div className={styles["window-header-sub-tip"]}>(如不能聊天，请关注‘简桔’公众号回复‘chat’获取密钥)</div>*/}
         </div>
         <div className={styles["window-actions"]}>
           <div className={styles["window-action-button"] + " " + styles.mobile}>
@@ -612,13 +612,7 @@ export function Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>简桔ChatGPT</div>
-          <div className={styles["sidebar-sub-title"]}>
-            欢迎关注我公众号“简桔”
-          </div>
-            <div className={styles["sidebar-sub-title"]}>
-                公众号提供免费的密钥可供体验聊天~
-            </div>
+          <div className={styles["sidebar-title"]}>狗蛋 ChatGPT</div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />
           </div>

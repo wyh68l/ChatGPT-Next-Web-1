@@ -3,7 +3,7 @@ import { SubmitKey } from "../store/app";
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized: "请关注‘简桔’公众号回复‘chat’获取密钥,在设置栏填写",
+    Unauthorized: "请获取授权码,在设置栏填写",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 条对话`,
@@ -129,7 +129,7 @@ const cn = {
   Store: {
     DefaultTopic: "新的聊天",
     BotHello: "有什么可以帮你的吗?",
-    Error: "出错了，请关注‘简桔’公众号回复‘chat’获取密钥,在设置栏填写~",
+    Error: "出错了，请获取密钥key,在设置栏填写~",
     Prompt: {
       History: (content: string) =>
         "这是 ai 和用户的历史聊天总结作为前情提要：" + content,
