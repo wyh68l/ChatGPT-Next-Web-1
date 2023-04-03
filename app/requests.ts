@@ -1,6 +1,7 @@
 import type { ChatRequest, ChatReponse } from "./api/openai/typing";
 import { filterConfig, Message, ModelConfig, useAccessStore } from "./store";
 import Locale from "./locales";
+import { showToast } from "./components/ui-lib";
 
 const TIME_OUT_MS = 30000;
 
@@ -9,7 +10,7 @@ const makeRequestParam = (
   options?: {
     filterBot?: boolean;
     stream?: boolean;
-  }
+  },
 ): ChatRequest => {
   let sendMessages = messages.map((v) => ({
     role: v.role,
@@ -48,6 +49,7 @@ export function requestOpenaiClient(path: string) {
       method,
       headers: {
         "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
         path,
         ...getHeaders(),
       },
@@ -69,17 +71,38 @@ export async function requestChat(messages: Message[]) {
 }
 
 export async function requestUsage() {
+  const formatDate = (d: Date) =>
+    `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d
+      .getDate()
+      .toString()
+      .padStart(2, "0")}`;
+  const ONE_DAY = 24 * 60 * 60 * 1000;
+  const now = new Date(Date.now() + ONE_DAY);
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+  const startDate = formatDate(startOfMonth);
+  const endDate = formatDate(now);
   const res = await requestOpenaiClient(
-    "dashboard/billing/credit_grants?_vercel_no_cache=1"
+    `dashboard/billing/usage?start_date=${startDate}&end_date=${endDate}`,
   )(null, "GET");
 
   try {
     const response = (await res.json()) as {
-      total_available: number;
-      total_granted: number;
-      total_used: number;
+      total_usage: number;
+      error?: {
+        type: string;
+        message: string;
+      };
     };
-    return response;
+
+    if (response.error && response.error.type) {
+      showToast(response.error.message);
+      return;
+    }
+
+    if (response.total_usage) {
+      response.total_usage = Math.round(response.total_usage) / 100;
+    }
+    return response.total_usage;
   } catch (error) {
     console.error("[Request usage] ", error, res.body);
   }
@@ -91,9 +114,9 @@ export async function requestChatStream(
     filterBot?: boolean;
     modelConfig?: ModelConfig;
     onMessage: (message: string, done: boolean) => void;
-    onError: (error: Error) => void;
+    onError: (error: Error, statusCode?: number) => void;
     onController?: (controller: AbortController) => void;
-  }
+  },
 ) {
   const req = makeRequestParam(messages, {
     stream: true,
@@ -155,11 +178,10 @@ export async function requestChatStream(
       finish();
     } else if (res.status === 401) {
       console.error("Anauthorized");
-      responseText = Locale.Error.Unauthorized;
-      finish();
+      options?.onError(new Error("Anauthorized"), res.status);
     } else {
       console.error("Stream Error", res.body);
-      options?.onError(new Error("Stream Error"));
+      options?.onError(new Error("Stream Error"), res.status);
     }
   } catch (err) {
     console.error("NetWork Error", err);
@@ -188,7 +210,7 @@ export const ControllerPool = {
   addController(
     sessionIndex: number,
     messageIndex: number,
-    controller: AbortController
+    controller: AbortController,
   ) {
     const key = this.key(sessionIndex, messageIndex);
     this.controllers[key] = controller;
