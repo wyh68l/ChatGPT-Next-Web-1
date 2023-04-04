@@ -1,5 +1,5 @@
 import type { ChatRequest, ChatReponse } from "./api/openai/typing";
-import { filterConfig, Message, ModelConfig, useAccessStore } from "./store";
+import { Message, ModelConfig, useAccessStore } from "./store";
 import Locale from "./locales";
 import { localStorageSet, localStorageGet } from "./utils";
 import { showToast } from "./components/ui-lib";
@@ -132,11 +132,6 @@ export async function requestChatStream(
     stream: true,
     filterBot: options?.filterBot,
   });
-
-  // valid and assign model config
-  if (options?.modelConfig) {
-    Object.assign(req, filterConfig(options.modelConfig));
-  }
 
   console.log("[Request] ", req);
 
