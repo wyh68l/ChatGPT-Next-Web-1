@@ -64,28 +64,25 @@ export default function RootLayout({
         <script src="/serviceWorkerRegister.js" defer></script>
         <script
           async
-          custom-element="amp-ad"
-          src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
-        ></script>
-        <script
-          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1100057899866189"
           crossOrigin="anonymous"
         ></script>
       </head>
       <body>
         {children}
-        <amp-ad
-          width="100vw"
-          height="320"
-          type="adsense"
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1100057899866189"
+          crossOrigin="anonymous"
+        ></script>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-format="autorelaxed"
           data-ad-client="ca-pub-1100057899866189"
           data-ad-slot="6036874200"
-          data-auto-format="mcrspv"
-          data-full-width=""
-        >
-          <div overflow=""></div>
-        </amp-ad>
+        ></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </body>
     </html>
   );
