@@ -355,6 +355,10 @@ export const useChatStore = create<ChatStore>()(
           onError(error, statusCode) {
             if (statusCode === 401) {
               botMessage.content = Locale.Error.Unauthorized;
+            } else if (statusCode === 403) {
+              botMessage.content +=
+                "\n\n" +
+                "每日免费次数只有20次哦，关注‘简桔’公众号获取免费密钥~";
             } else {
               botMessage.content += "\n\n" + Locale.Store.Error;
             }

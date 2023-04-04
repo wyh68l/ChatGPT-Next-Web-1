@@ -81,3 +81,28 @@ export function getCurrentVersion() {
 
   return currentId;
 }
+
+//设置缓存
+export function localStorageSet(name: string, data: any) {
+  const obj = {
+    data,
+    expire: new Date().getTime() + 24 * 60 * 60 * 1000, //一天过期时间
+  };
+  localStorage.setItem(name, JSON.stringify(obj));
+}
+
+//读取缓存且比较时间戳是否过期
+export function localStorageGet(name: string) {
+  const storage = localStorage.getItem(name);
+  const time = new Date().getTime();
+  let result = null;
+  if (storage) {
+    const obj = JSON.parse(storage);
+    if (time < obj.expire) {
+      result = obj.data;
+    } else {
+      localStorage.removeItem(name);
+    }
+  }
+  return result;
+}

@@ -1,10 +1,11 @@
 import type { ChatRequest, ChatReponse } from "./api/openai/typing";
 import { filterConfig, Message, ModelConfig, useAccessStore } from "./store";
 import Locale from "./locales";
+import { localStorageSet, localStorageGet } from "./utils";
 import { showToast } from "./components/ui-lib";
+import cn from "./locales/cn";
 
 const TIME_OUT_MS = 30000;
-
 const makeRequestParam = (
   messages: Message[],
   options?: {
@@ -118,6 +119,15 @@ export async function requestChatStream(
     onController?: (controller: AbortController) => void;
   },
 ) {
+  let Times = localStorageGet("Times") || 1;
+  const accessStore = useAccessStore.getState();
+  if (Number(Times) > 20 && !accessStore.token) {
+    options?.onError(
+      new Error("每日免费次数只有20次哦，关注‘简桔’公众号获取免费密钥~"),
+      403,
+    );
+    return false;
+  }
   const req = makeRequestParam(messages, {
     stream: true,
     filterBot: options?.filterBot,
@@ -151,6 +161,10 @@ export async function requestChatStream(
     const finish = () => {
       options?.onMessage(responseText, true);
       controller.abort();
+      if (!accessStore.token) {
+        Times += 1;
+        localStorageSet("Times", Times);
+      }
     };
 
     if (res.ok) {

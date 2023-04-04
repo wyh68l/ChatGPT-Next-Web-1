@@ -120,18 +120,18 @@ function PromptToast(props: {
 
   return (
     <div className={chatStyle["prompt-toast"]} key="prompt-toast">
-      {props.showToast && (
-        <div
-          className={chatStyle["prompt-toast-inner"] + " clickable"}
-          role="button"
-          onClick={() => props.setShowModal(true)}
-        >
-          <BrainIcon />
-          <span className={chatStyle["prompt-toast-content"]}>
-            {Locale.Context.Toast(context.length)}
-          </span>
-        </div>
-      )}
+      {/*{props.showToast && (*/}
+      {/*<div*/}
+      {/*className={chatStyle["prompt-toast-inner"] + " clickable"}*/}
+      {/*role="button"*/}
+      {/*onClick={() => props.setShowModal(true)}*/}
+      {/*>*/}
+      {/*<BrainIcon />*/}
+      {/*<span className={chatStyle["prompt-toast-content"]}>*/}
+      {/*{Locale.Context.Toast(context.length)}*/}
+      {/*</span>*/}
+      {/*</div>*/}
+      {/*)}*/}
       {props.showModal && (
         <div className="modal-mask">
           <Modal
@@ -481,9 +481,9 @@ export function Chat(props: {
           </div>
           <div className={styles["window-header-sub-title"]}>
             {Locale.Chat.SubTitle(session.messages.length)}
-          </div>
-          <div className={styles["window-header-sub-tip"]}>
-            (如不能聊天，请关注‘简桔’公众号回复‘chat’获取密钥)
+            {/*<div className={styles["window-header-sub-tip"]}>*/}
+            {/*(如不能聊天，请关注‘简桔’公众号回复‘chat’获取密钥)*/}
+            {/*</div>*/}
           </div>
         </div>
         <div className={styles["window-actions"]}>
