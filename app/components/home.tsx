@@ -105,7 +105,7 @@ function _Home() {
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>简桔ChatGPT</div>
           <div className={styles["sidebar-sub-title"]}>
-            欢迎关注我公众号“简桔”
+            欢迎关注我公众号“简桔A智能”
           </div>
           <div className={styles["sidebar-sub-title"]}>
             公众号提供免费的密钥可供体验聊天~
