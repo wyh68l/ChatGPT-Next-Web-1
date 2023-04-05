@@ -121,9 +121,9 @@ export async function requestChatStream(
 ) {
   let Times = localStorageGet("Times") || 1;
   const accessStore = useAccessStore.getState();
-  if (Number(Times) > 20 && !accessStore.token) {
+  if (Number(Times) > 10 && !accessStore.token) {
     options?.onError(
-      new Error("每日免费次数只有20次哦，关注‘简桔’公众号获取免费密钥~"),
+      new Error("每日免费次数只有10次哦，关注‘简桔’公众号获取免费密钥~"),
       403,
     );
     return false;
