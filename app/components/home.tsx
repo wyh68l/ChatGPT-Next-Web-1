@@ -183,6 +183,71 @@ function _Home() {
           />
         )}
       </div>
+
+      <div
+        className={`${
+          !isMobileScreen()
+            ? config.tightBorder
+              ? styles["container-adv-none"]
+              : styles["container-adv"]
+            : styles["container-adv-none"]
+        }`}
+      >
+        <div className={styles["container-adv-title"]}>公告</div>
+        <div className={styles["container-adv-content"]}>
+          1.购买ChatGPT账号密钥 <br />
+          2.建立相同ChatGPT国内网站 <br />
+          3.推广免费送ChatGPT账号和返现 <br />
+          <div className={styles["container-adv-contents"]}>
+            微信扫描二维码
+            <img
+              src="../../static/wechat.jpg"
+              alt=""
+              className={styles["container-adv-img1"]}
+            />
+          </div>
+          扫描下面二维码送福利
+          <br />
+          1.免费送ChatGPT账号密钥
+          <br />
+          2.免费魔法上网
+          <br />
+          3.送论文查重、降重功能
+          <br />
+          <div className={styles["container-adv-contents"]}>
+            微信扫描二维码
+            <img
+              src="../../static/xq.jpg"
+              alt=""
+              className={styles["container-adv-img2"]}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`${
+          !isMobileScreen()
+            ? config.tightBorder
+              ? styles["container-adv-none"]
+              : styles["container-adv2"]
+            : styles["container-adv-none"]
+        }`}
+      >
+        <div className={styles["container-adv-title"]}>关注公众号</div>
+        <div className={styles["container-adv-content"]}>
+          1.获取免费ChatGPT密钥 <br />
+          2.获取网站最新更新动态 <br />
+          <div className={styles["container-adv-contents"]}>
+            微信扫描二维码
+            <img
+              src="../../static/gzh.jpg"
+              alt=""
+              className={styles["container-adv-img1"]}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
