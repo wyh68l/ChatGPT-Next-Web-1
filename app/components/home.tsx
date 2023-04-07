@@ -84,7 +84,8 @@ function _Home() {
   // setting
   const [openSettings, setOpenSettings] = useState(false);
   const config = useChatStore((state) => state.config);
-
+  const [advFlag1, setAdvFlag1] = useState(true);
+  const [advFlag2, setAdvFlag2] = useState(true);
   useSwitchTheme();
 
   if (loading) {
@@ -186,14 +187,24 @@ function _Home() {
 
       <div
         className={`${
-          !isMobileScreen()
-            ? config.tightBorder
-              ? styles["container-adv-none"]
-              : styles["container-adv"]
+          advFlag1
+            ? !isMobileScreen()
+              ? config.tightBorder
+                ? styles["container-adv-none"]
+                : styles["container-adv"]
+              : styles["container-adv-none"]
             : styles["container-adv-none"]
         }`}
       >
-        <div className={styles["container-adv-title"]}>公告</div>
+        <div className={styles["container-adv-title"]}>
+          公告
+          <IconButton
+            icon={<CloseIcon />}
+            onClick={() => {
+              setAdvFlag1(false);
+            }}
+          />
+        </div>
         <div className={styles["container-adv-content"]}>
           1.购买ChatGPT账号密钥 <br />
           2.建立相同ChatGPT国内网站 <br />
@@ -227,14 +238,24 @@ function _Home() {
 
       <div
         className={`${
-          !isMobileScreen()
-            ? config.tightBorder
-              ? styles["container-adv-none"]
-              : styles["container-adv2"]
+          advFlag2
+            ? !isMobileScreen()
+              ? config.tightBorder
+                ? styles["container-adv-none"]
+                : styles["container-adv2"]
+              : styles["container-adv-none"]
             : styles["container-adv-none"]
         }`}
       >
-        <div className={styles["container-adv-title"]}>关注公众号</div>
+        <div className={styles["container-adv-title"]}>
+          关注公众号
+          <IconButton
+            icon={<CloseIcon />}
+            onClick={() => {
+              setAdvFlag2(false);
+            }}
+          />
+        </div>
         <div className={styles["container-adv-content"]}>
           1.获取免费ChatGPT密钥 <br />
           2.获取网站最新更新动态 <br />
