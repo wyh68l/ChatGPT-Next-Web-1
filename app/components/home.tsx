@@ -111,8 +111,16 @@ function _Home() {
           <div className={styles["sidebar-sub-title"]}>
             公众号提供免费的密钥可供体验聊天~
           </div>
-          <div className={styles["sidebar-logo"]}>
-            <ChatGptIcon />
+          <div
+            className={`${
+              isMobileScreen()
+                ? styles["sidebar-logo"]
+                : styles["sidebar-logo-none"]
+            }`}
+          >
+            {/*<ChatGptIcon />*/}
+            <img src="../../static/gzh.jpg" alt="" />
+            <div>关注公众号</div>
           </div>
         </div>
 

@@ -154,6 +154,14 @@
   position: absolute;
   right: 0;
   bottom: 18px;
+  text-align: center;
+  font-size: 12px;
+  img{
+    width: 60px;
+  }
+}
+.sidebar-logo-none{
+  display: none;
 }
 
 .sidebar-title {
