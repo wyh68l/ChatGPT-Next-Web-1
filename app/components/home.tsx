@@ -111,6 +111,11 @@ function _Home() {
           <div className={styles["sidebar-sub-title"]}>
             公众号提供免费的密钥可供体验聊天~
           </div>
+          <div className={styles["sidebar-sub-title2"]}>
+            <a href="https://shop441460054.m.taobao.com/?directUrl=https%3A%2F%2Fshop441460054.m.taobao.com&from=qianniuAndroid&version=9.8.100&ttid=700145%40tbsellerworkbench_android_9.8.100">
+              点击购买任意商品免费送ChatGPT账号
+            </a>
+          </div>
           <div
             className={`${
               isMobileScreen()
@@ -275,6 +280,23 @@ function _Home() {
               className={styles["container-adv-img1"]}
             />
           </div>
+          我新开了家淘宝服装店！
+          <br />
+          日系欧美风，绝对的高颜值哦~
+          <br />
+          只要购买任意商品再加我微信！
+          <br />
+          直接免费送你ChatGPT账号！
+          <br />
+          点击下面网址进入店铺吧！
+          <br />
+          <a
+            className={styles["container-adv-tb"]}
+            href="https://shop441460054.taobao.com/index.htm"
+            target="_blank"
+          >
+            简桔潮牌工作室
+          </a>
         </div>
       </div>
     </div>

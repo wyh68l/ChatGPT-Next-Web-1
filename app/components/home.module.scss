@@ -72,6 +72,11 @@
         width: 100%;
         margin-top: 5px;
       }
+      .container-adv-tb{
+       font-size: 16px;
+        display: inline-block;
+        color: #f658cc;
+      }
       .container-adv-contents{
         text-align: center;
         margin-top: 10px;
@@ -80,7 +85,7 @@
   }
   .container-adv2{
     left: 3%;
-    height: 300px;
+    height: 470px;
   }
   .container-adv-none{
     display: none!important;
@@ -173,7 +178,13 @@
   font-size: 12px;
   font-weight: 400px;
 }
-
+.sidebar-sub-title2{
+  a{
+    font-size: 14px;
+    color: #f67549;
+    font-weight: bold;
+  }
+}
 .sidebar-body {
   flex: 1;
   overflow: auto;
