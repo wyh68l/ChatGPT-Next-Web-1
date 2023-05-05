@@ -123,7 +123,7 @@ export async function requestChatStream(
   const accessStore = useAccessStore.getState();
   if (Number(Times) > 12 && !accessStore.token) {
     options?.onError(
-      new Error("每日免费次数只有12次哦，关注‘简桔A智能’公众号获取免费密钥~"),
+      new Error("每日免费次数只有12次哦，关注‘简桔’公众号获取免费密钥~"),
       403,
     );
     return false;

@@ -354,7 +354,7 @@ export const useChatStore = create<ChatStore>()(
             } else if (statusCode === 403) {
               botMessage.content +=
                 "\n\n" +
-                "每日免费次数只有12次哦，关注‘简桔A智能’公众号获取免费密钥~";
+                "每日免费次数只有12次哦，关注‘简桔’公众号获取免费密钥~";
             } else {
               botMessage.content += "\n\n" + Locale.Store.Error;
             }

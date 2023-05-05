@@ -106,14 +106,14 @@ function _Home() {
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>简桔ChatGPT</div>
           <div className={styles["sidebar-sub-title"]}>
-            欢迎关注我公众号“简桔A智能”
+            欢迎关注我公众号“简桔”
           </div>
           <div className={styles["sidebar-sub-title"]}>
             公众号提供免费的密钥可供体验聊天~
           </div>
           <div className={styles["sidebar-sub-title2"]}>
-            <a href="https://shop441460054.m.taobao.com/?directUrl=https%3A%2F%2Fshop441460054.m.taobao.com&from=qianniuAndroid&version=9.8.100&ttid=700145%40tbsellerworkbench_android_9.8.100">
-              点击购买任意商品免费送ChatGPT账号
+            <a href="https://h5.m.taobao.com/awp/core/detail.htm?id=717239139801&spm=a2141.7631671.content.91">
+              点击购买免费送ChatGPT账号
             </a>
           </div>
           <div
@@ -124,7 +124,7 @@ function _Home() {
             }`}
           >
             {/*<ChatGptIcon />*/}
-            <img src="../../static/gzh.jpg" alt="" />
+            <img src="../../static/gzh1.jpg" alt="" />
             <div>关注公众号</div>
           </div>
         </div>
