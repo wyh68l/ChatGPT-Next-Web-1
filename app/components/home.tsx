@@ -124,7 +124,7 @@ function _Home() {
             }`}
           >
             {/*<ChatGptIcon />*/}
-            <img src="../../static/gzh1.jpg" alt="" />
+            <img src="../../static/gzh.jpg" alt="" />
             <div>关注公众号</div>
           </div>
         </div>
