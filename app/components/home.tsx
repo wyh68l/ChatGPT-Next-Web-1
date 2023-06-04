@@ -230,22 +230,22 @@ function _Home() {
               className={styles["container-adv-img1"]}
             />
           </div>
-          扫描下面二维码送福利
-          <br />
-          1.免费送ChatGPT账号密钥
-          <br />
-          2.免费魔法上网
-          <br />
-          3.送论文查重、降重功能
-          <br />
-          <div className={styles["container-adv-contents"]}>
-            微信扫描二维码
-            <img
-              src="../../static/xq.jpg"
-              alt=""
-              className={styles["container-adv-img2"]}
-            />
-          </div>
+          {/*扫描下面二维码送福利*/}
+          {/*<br />*/}
+          {/*1.免费送ChatGPT账号密钥*/}
+          {/*<br />*/}
+          {/*2.免费魔法上网*/}
+          {/*<br />*/}
+          {/*3.送论文查重、降重功能*/}
+          {/*<br />*/}
+          {/*<div className={styles["container-adv-contents"]}>*/}
+          {/*微信扫描二维码*/}
+          {/*<img*/}
+          {/*src="../../static/xq.jpg"*/}
+          {/*alt=""*/}
+          {/*className={styles["container-adv-img2"]}*/}
+          {/*/>*/}
+          {/*</div>*/}
         </div>
       </div>
 
